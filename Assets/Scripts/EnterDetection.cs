@@ -15,9 +15,9 @@ public class EnterDetection : MonoBehaviour
         lastCollision = cooldown;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.tag == playerTag)
+        if (other.gameObject.tag == playerTag)
         {
             lastCollision = 0;
         }

@@ -11,7 +11,7 @@ public class DoorCameraPosition : MonoBehaviour
     public bool isStartingDoor;
 
     // Do not set: to be used by other scripts
-    public float changeTime = 0;
+    public float changeTime;
     public int currentRoom;
 
     EnterDetection statusA;
@@ -34,14 +34,14 @@ public class DoorCameraPosition : MonoBehaviour
     void Update()
     {
         changeTime += Time.deltaTime;
-        if (statusA || statusB)
+        if (statusA.isEntered || statusB.isEntered)
         {
             changeTime = 0;
-            if (statusA && !statusB)
+            if (statusA.isEntered && !statusB.isEntered)
             {
                 currentRoom = roomA;
             }
-            if (statusB && !statusA)
+            if (statusB.isEntered && !statusA.isEntered)
             {
                 currentRoom = roomB;
             }
