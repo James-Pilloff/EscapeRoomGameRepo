@@ -1,17 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class PlayerInteract : MonoBehaviour
 {
     public GameObject interactPromptUI;
-    private float interactRange = 2f;
+    public Image inventoryUIImage;
+
+    private float interactRange = 1f;
     private GameObject nearestItem;
+
+    private GameObject inventoryItem;
 
     void Start()
     {
         interactPromptUI.SetActive(false);
+        inventoryUIImage.enabled = false;
     }
 
     void Update()
@@ -37,7 +43,7 @@ public class PlayerInteract : MonoBehaviour
         {
             interactPromptUI.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown("space"))
             {
                 InteractWithItem(nearestItem);
             }
@@ -45,14 +51,32 @@ public class PlayerInteract : MonoBehaviour
         else
         {
             interactPromptUI.SetActive(false);
+
+            if (Input.GetKeyDown("space"))
+            {
+                if(inventoryItem != null){
+                    DropItem();
+                }
+            }
         }
     }
 
     void InteractWithItem(GameObject item)
     {
-        Debug.Log("Picked up: " + item.name);
-        // Add your item pickup logic here
-        Destroy(item); // Simple: remove item from scene
-        interactPromptUI.SetActive(false);
+        Sprite itemSprite = item.GetComponent<SpriteRenderer>().sprite;
+        inventoryUIImage.sprite = itemSprite;
+        inventoryUIImage.enabled = true;
+
+        inventoryItem = item;
+        item.SetActive(false);
+
+    }
+
+        void DropItem()
+    {
+        inventoryItem.transform.position = transform.position;
+        inventoryItem.SetActive(true);
+        inventoryUIImage.enabled = false;
+        inventoryItem = null;
     }
 }
