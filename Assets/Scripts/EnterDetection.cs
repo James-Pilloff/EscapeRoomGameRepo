@@ -19,7 +19,13 @@ public class EnterDetection : MonoBehaviour
     {
         if (collision.gameObject.tag == playerTag)
         {
-            
+            lastCollision = 0;
         }
+    }
+
+    void Update()
+    {
+        lastCollision += Time.deltaTime;
+        isEntered = lastCollision < cooldown;
     }
 }
