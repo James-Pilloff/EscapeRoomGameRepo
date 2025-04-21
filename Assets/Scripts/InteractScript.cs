@@ -47,6 +47,10 @@ public class InteractScript : MonoBehaviour
     }
 
     void InteractWithItem(GameObject nearestInteractable){
-
+        IInteractable interactable = nearestInteractable.GetComponent<IInteractable>();
+        if (interactable != null)
+        {
+            interactable.Interact();
+        }
     }
 }
