@@ -1,82 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
-public class PlayerInteract : MonoBehaviour
+public class InteractScript : MonoBehaviour
 {
     public GameObject interactPromptUI;
-    public Image inventoryUIImage;
-
+    private GameObject nearestInteractable;
     private float interactRange = 1f;
-    private GameObject nearestItem;
-
-    private GameObject inventoryItem;
 
     void Start()
     {
         interactPromptUI.SetActive(false);
-        inventoryUIImage.enabled = false;
     }
 
     void Update()
     {
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, interactRange);
         float closestDistance = float.MaxValue;
-        nearestItem = null;
+        nearestInteractable = null;
 
         foreach (Collider2D hit in hits)
         {
-            if (hit.CompareTag("Item"))
+            if (hit.CompareTag("Interactable"))
             {
                 float distance = Vector2.Distance(transform.position, hit.transform.position);
                 if (distance < closestDistance)
                 {
                     closestDistance = distance;
-                    nearestItem = hit.gameObject;
+                    nearestInteractable = hit.gameObject;
                 }
             }
         }
 
-        if (nearestItem != null)
+        if (nearestInteractable != null)
         {
             interactPromptUI.SetActive(true);
 
-            if (Input.GetKeyDown("space"))
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                InteractWithItem(nearestItem);
+                InteractWithItem(nearestInteractable);
             }
-        }
-        else
-        {
+        } else {
             interactPromptUI.SetActive(false);
-
-            if (Input.GetKeyDown("space"))
-            {
-                if(inventoryItem != null){
-                    DropItem();
-                }
-            }
         }
     }
 
-    void InteractWithItem(GameObject item)
-    {
-        Sprite itemSprite = item.GetComponent<SpriteRenderer>().sprite;
-        inventoryUIImage.sprite = itemSprite;
-        inventoryUIImage.enabled = true;
+    void InteractWithItem(GameObject nearestInteractable){
 
-        inventoryItem = item;
-        item.SetActive(false);
-
-    }
-
-        void DropItem()
-    {
-        inventoryItem.transform.position = transform.position;
-        inventoryItem.SetActive(true);
-        inventoryUIImage.enabled = false;
-        inventoryItem = null;
     }
 }
