@@ -42,7 +42,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565231306505507763}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -103,7 +103,7 @@ MonoBehaviour:
   entranceB: {fileID: 4714579526903731340}
   roomA: 0
   roomB: 1
-  isStartingDoor: 1
+  isStartingDoor: 0
   changeTime: 0
   currentRoom: 0
 --- !u!1 &1846433167217621920
