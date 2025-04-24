@@ -59,6 +59,15 @@ public class PickUpScript : MonoBehaviour
                 }
             }
         }
+
+        if (inventoryItem != null){
+            if (Input.GetKeyDown(KeyCode.F)){
+                IUsable usableComponent = inventoryItem.GetComponent<IUsable>();
+                if(usableComponent != null){
+                    usableComponent.Use();
+                }
+            }
+        }
     }
 
     void PickUpItem(GameObject item)
