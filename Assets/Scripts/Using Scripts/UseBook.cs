@@ -36,7 +36,7 @@ public class UseBook : MonoBehaviour, IUsable
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (bookCanvas.activeSelf && Input.GetKeyDown(KeyCode.Escape))
         {
             Close();
         }
