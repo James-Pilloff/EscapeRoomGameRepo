@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class FollowMouse: MonoBehaviour 
+public class Mouse: MonoBehaviour 
 {
 	Vector3 pos;
 
@@ -17,5 +17,7 @@ public class FollowMouse: MonoBehaviour
 		pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		pos.z = 0;
 		transform.position = pos;
+
+		GetComponent<Collider2D>().enabled = Input.GetMouseButton(0);
 	}
 }

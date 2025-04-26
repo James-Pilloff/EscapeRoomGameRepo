@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEntered: 0
-  playerTag: Player
+  playerTag: PlayerDoorCollider
   cooldown: 0.1
 --- !u!1 &3181752406415235793
 GameObject:
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEntered: 0
-  playerTag: Player
+  playerTag: PlayerDoorCollider
   cooldown: 0.1
 --- !u!1 &7018484596305459959
 GameObject:
