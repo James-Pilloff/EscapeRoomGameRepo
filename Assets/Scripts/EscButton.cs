@@ -30,8 +30,8 @@ public class EscButton : MonoBehaviour
         GetComponent<Collider2D>().OverlapCollider(contactFilter, results);
 
         wasClicked = isClicked;
-        isPressed = false;
         isClicked = false;
+        isPressed = false;
 
         for (int index = 0; index < results.Count; index++)
         {
