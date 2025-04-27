@@ -13,7 +13,8 @@ public class InteractiveDetection : MonoBehaviour
     private ContactFilter2D contactFilter;
     private List<Collider2D> results = new List<Collider2D>();
     private bool inRange;
-    private bool clicking;
+    private bool isClicked;
+    private bool wasClicked;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class InteractiveDetection : MonoBehaviour
         contactFilter.useTriggers = true;
         contactFilter.SetLayerMask(Physics2D.AllLayers);
         contactFilter.useLayerMask = true;
+        isClicked = false;
     }
 
     // Update is called once per frame
@@ -36,7 +38,8 @@ public class InteractiveDetection : MonoBehaviour
         GetComponent<Collider2D>().OverlapCollider(contactFilter, results);
 
         inRange = false;
-        clicking = false;
+        wasClicked = isClicked;
+        isClicked = false;
         for (int index = 0; index < results.Count; index++)
         {
             if (results[index].tag == playerTag)
@@ -45,11 +48,11 @@ public class InteractiveDetection : MonoBehaviour
             }
             if (results[index].tag == mouseTag)
             {
-                clicking = true;
+                isClicked = true;
             }
         }
         
-        if (clicking && inRange && interactionManager.GetComponent<InteractionManagement>().canInteract)
+        if (isClicked && !wasClicked && inRange && interactionManager.GetComponent<InteractionManagement>().canInteract)
         {
             isInteracting = true;
         }

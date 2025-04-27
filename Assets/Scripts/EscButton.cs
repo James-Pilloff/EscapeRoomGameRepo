@@ -7,7 +7,9 @@ public class EscButton : MonoBehaviour
     public string mouseTag;
     public GameObject interactionManager;
     public bool isPressed;
-
+    
+    private bool wasClicked;
+    private bool isClicked;
     private ContactFilter2D contactFilter;
     private List<Collider2D> results = new List<Collider2D>();
     
@@ -18,6 +20,7 @@ public class EscButton : MonoBehaviour
         contactFilter.useTriggers = true;
         contactFilter.SetLayerMask(Physics2D.AllLayers);
         contactFilter.useLayerMask = true;
+        isClicked = false;
     }
 
     // Update is called once per frame
@@ -26,17 +29,19 @@ public class EscButton : MonoBehaviour
         results.Clear();
         GetComponent<Collider2D>().OverlapCollider(contactFilter, results);
 
+        wasClicked = isClicked;
         isPressed = false;
+        isClicked = false;
 
         for (int index = 0; index < results.Count; index++)
         {
             if (results[index].tag == mouseTag)
             {
-                isPressed = true;
+                isClicked = true;
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (isClicked && !wasClicked || Input.GetKeyDown(KeyCode.Escape))
         {
             isPressed = true;
         }
