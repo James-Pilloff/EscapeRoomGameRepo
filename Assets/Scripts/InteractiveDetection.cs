@@ -6,6 +6,7 @@ public class InteractiveDetection : MonoBehaviour
 {
     public string playerTag;
     public string mouseTag;
+    public bool universal;
     public GameObject interactionManager;
     public GameObject escButton;
     public bool isInteracting;
@@ -37,7 +38,7 @@ public class InteractiveDetection : MonoBehaviour
         results.Clear();
         GetComponent<Collider2D>().OverlapCollider(contactFilter, results);
 
-        inRange = false;
+        inRange = universal;
         wasClicked = isClicked;
         isClicked = false;
         for (int index = 0; index < results.Count; index++)
