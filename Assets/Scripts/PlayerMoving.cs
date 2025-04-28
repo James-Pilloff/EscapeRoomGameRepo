@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMoving : MonoBehaviour
 {
+    public GameObject interactionManager;
+
     private float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 movement;
@@ -23,6 +25,9 @@ public class PlayerMoving : MonoBehaviour
     void FixedUpdate()
     {
         // Move the player using Rigidbody2D
-        rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
+        if (interactionManager.GetComponent<InteractionManagement>().canInteract)
+        {
+            rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
+        }
     }
 }

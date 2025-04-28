@@ -7,6 +7,9 @@ TagManager:
   - Item
   - Interactable
   - Wall
+  - PlayerDoorCollider
+  - PlayerInteractionCollider
+  - Mouse
   layers:
   - Default
   - TransparentFX
