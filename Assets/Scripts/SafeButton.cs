@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EscButton : MonoBehaviour
+public class SafeButton : MonoBehaviour
 {
-    public string mouseTag;
-    public GameObject interactionManager;
+    public GameObject safe;
     public GameObject mouse;
-    public bool isPressed;
-    
+    public string interaction;
+    public string mouseTag;
+
     private bool wasClicked;
     private bool isClicked;
     private ContactFilter2D contactFilter;
     private List<Collider2D> results = new List<Collider2D>();
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +32,6 @@ public class EscButton : MonoBehaviour
         GetComponent<Collider2D>().OverlapCollider(contactFilter, results);
 
         isClicked = false;
-        isPressed = false;
 
         for (int index = 0; index < results.Count; index++)
         {
@@ -42,15 +41,30 @@ public class EscButton : MonoBehaviour
             }
         }
 
-        if (isClicked && !wasClicked || Input.GetKeyDown(KeyCode.Escape))
+        if (isClicked && !wasClicked)
         {
-            isPressed = true;
+            if (interaction == "reset")
+            {
+                safe.GetComponent<SafeBehavior>().Reset();
+            } else if (interaction == "submit")
+            {
+                safe.GetComponent<SafeBehavior>().Submit();
+            } else
+            {
+                safe.GetComponent<SafeBehavior>().AddDigit(interaction);
+            }
         }
 
-        GetComponent<SpriteRenderer>().enabled = !interactionManager.GetComponent<InteractionManagement>().canInteract;
-        GetComponent<Collider2D>().enabled = !interactionManager.GetComponent<InteractionManagement>().canInteract;
+        if (safe.GetComponent<SpriteRenderer>().enabled)
+        {
+            GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<Collider2D>().enabled = true;
+        } else
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+        }
 
         wasClicked = mouse.GetComponent<Collider2D>().enabled;
-
     }
 }

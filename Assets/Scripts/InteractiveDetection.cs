@@ -9,6 +9,7 @@ public class InteractiveDetection : MonoBehaviour
     public bool universal;
     public GameObject interactionManager;
     public GameObject escButton;
+    public GameObject mouse;
     public bool isInteracting;
 
     private ContactFilter2D contactFilter;
@@ -25,6 +26,7 @@ public class InteractiveDetection : MonoBehaviour
         contactFilter.SetLayerMask(Physics2D.AllLayers);
         contactFilter.useLayerMask = true;
         isClicked = false;
+        wasClicked = false;
     }
 
     // Update is called once per frame
@@ -39,7 +41,7 @@ public class InteractiveDetection : MonoBehaviour
         GetComponent<Collider2D>().OverlapCollider(contactFilter, results);
 
         inRange = universal;
-        wasClicked = isClicked;
+
         isClicked = false;
         for (int index = 0; index < results.Count; index++)
         {
@@ -57,5 +59,7 @@ public class InteractiveDetection : MonoBehaviour
         {
             isInteracting = true;
         }
+
+        wasClicked = mouse.GetComponent<Collider2D>().enabled;
     }
 }
