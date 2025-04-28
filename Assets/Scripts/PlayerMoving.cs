@@ -31,6 +31,9 @@ public class PlayerMoving : MonoBehaviour
             {
                 rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
             }
+        } else
+        {
+            rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
         }
     }
 }
