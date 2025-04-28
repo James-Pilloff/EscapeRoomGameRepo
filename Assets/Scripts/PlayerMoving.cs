@@ -25,9 +25,12 @@ public class PlayerMoving : MonoBehaviour
     void FixedUpdate()
     {
         // Move the player using Rigidbody2D
-        if (interactionManager.GetComponent<InteractionManagement>().canInteract)
+        if (interactionManger != null)
         {
-            rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
+            if (interactionManager.GetComponent<InteractionManagement>().canInteract)
+            {
+                rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
+            }
         }
     }
 }
