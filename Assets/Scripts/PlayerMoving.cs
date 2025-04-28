@@ -25,7 +25,7 @@ public class PlayerMoving : MonoBehaviour
     void FixedUpdate()
     {
         // Move the player using Rigidbody2D
-        if (interactionManger != null)
+        if (interactionManager != null)
         {
             if (interactionManager.GetComponent<InteractionManagement>().canInteract)
             {
