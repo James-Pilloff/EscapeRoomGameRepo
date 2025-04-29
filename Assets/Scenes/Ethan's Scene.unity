@@ -1266,8 +1266,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 13
+  m_fontSizeBase: 13
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7913,8 +7913,8 @@ Transform:
   m_GameObject: {fileID: 1626374100}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.19693, y: 1.642456, z: -0.075965755}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -8137,8 +8137,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 13
+  m_fontSizeBase: 13
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10268,6 +10268,7 @@ GameObject:
   - component: {fileID: 2107971309}
   - component: {fileID: 2107971308}
   - component: {fileID: 2107971307}
+  - component: {fileID: 2107971310}
   m_Layer: 0
   m_Name: Special Bookshelf
   m_TagString: Interactable
@@ -10349,6 +10350,33 @@ Transform:
   - {fileID: 948528405}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &2107971310
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107971306}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1000000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2114725804
 GameObject:
   m_ObjectHideFlags: 0
@@ -10629,6 +10657,7 @@ MonoBehaviour:
   leftPageText: {fileID: 1644340334}
   rightPageText: {fileID: 223004546}
   pageLabel: {fileID: 2021760549}
+  bookshelf: {fileID: 2107971306}
 --- !u!1 &2120678231
 GameObject:
   m_ObjectHideFlags: 0
@@ -11354,7 +11383,7 @@ SceneRoots:
   - {fileID: 86801232}
   - {fileID: 1997534499}
   - {fileID: 1298885063}
-  - {fileID: 1626374101}
   - {fileID: 2107971309}
   - {fileID: 2118423042}
   - {fileID: 294638868}
+  - {fileID: 1626374101}
