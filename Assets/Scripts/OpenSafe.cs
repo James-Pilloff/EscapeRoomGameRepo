@@ -24,6 +24,9 @@ public class OpenSafe : MonoBehaviour
             {
                 GetComponent<InteractiveDetection>().isInteracting = false;
             }
+        } else
+        {
+            safe.GetComponent<SafeBehavior>().open = false;
         }
     }
 }
