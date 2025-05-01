@@ -27,10 +27,33 @@ public class UseSpecialBook : MonoBehaviour, IUsable
 
     public void Close(){
         if(currentLeftPageNumber == 122){
-            bookshelf.gameObject.SetActive(false);
+            Vector3 targetPosition = bookshelf.transform.position + new Vector3(3f, 0f, 0f); // Move 3 units to the right
+            StartCoroutine(MoveBookshelf(targetPosition, 3f)); // Move over 1.5 seconds
+        } else {
+            gameObject.SetActive(false);    
+            bookCanvas.SetActive(false);
         }
-        gameObject.SetActive(false);
+        
+    }
+
+    private IEnumerator MoveBookshelf(Vector3 targetPosition, float duration)
+    {
         bookCanvas.SetActive(false);
+
+
+        Vector3 startPosition = bookshelf.transform.position;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            bookshelf.transform.position = Vector3.Lerp(startPosition, targetPosition, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        bookshelf.transform.position = targetPosition;
+
+        gameObject.SetActive(false);
     }
 
     void Start()
