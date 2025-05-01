@@ -16,6 +16,9 @@ public class ShowIfHolding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<SpriteRenderer>().enabled = invent.GetComponent<InventoryManagement>().holding == item;
+        if (GetComponent<SpriteRenderer>().enabled)
+        {
+            GetComponent<SpriteRenderer>().enabled = invent.GetComponent<InventoryManagement>().holding == item;
+        }
     }
 }
