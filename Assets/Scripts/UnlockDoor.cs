@@ -51,6 +51,7 @@ public class UnlockDoor : MonoBehaviour
         {
             door.GetComponent<DoorLock>().isLocked = false;
             notUsed = false;
+            door.GetComponent<InteractiveDetection>().isInteracting = false;
         }
 
         wasClicked = mouse.GetComponent<Collider2D>().enabled;
