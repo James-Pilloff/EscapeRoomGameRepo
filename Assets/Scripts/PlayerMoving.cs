@@ -5,10 +5,11 @@ using UnityEngine;
 public class PlayerMoving : MonoBehaviour
 {
     public GameObject interactionManager;
+    public Vector2 movement;
+    // DO NOT set movement
 
     private float moveSpeed = 5f;
     private Rigidbody2D rb;
-    private Vector2 movement;
 
     void Start()
     {
