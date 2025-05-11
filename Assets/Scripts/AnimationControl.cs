@@ -6,11 +6,11 @@ public class AnimationControl : MonoBehaviour
 {
     public GameObject player;
     public Animator animator;
+    public int direction = 2;
 
     private bool isMoving;
     private float xMove;
     private float yMove;
-    private int currentScale;
 
     // Start is called before the first frame update
     void Start()
@@ -18,8 +18,6 @@ public class AnimationControl : MonoBehaviour
         animator.SetInteger("direction", 2);
         animator.SetBool("isIdle", true);
         // 0, 1, 2, 3 correspond to N, E, S, W respectively
-
-        currentScale = 1;
     }
 
     // Update is called once per frame
@@ -32,22 +30,22 @@ public class AnimationControl : MonoBehaviour
         {
             animator.SetInteger("direction", 3);
             transform.localScale = new Vector3(-1, 1, 1);
-            currentScale = -1;
+            direction = 3;
         } else if (xMove > 0)
         {
             animator.SetInteger("direction", 1);
             transform.localScale = new Vector3(1, 1, 1);
-            currentScale = 1;
+            direction = 1;
         } else if (yMove < 0)
         {
             animator.SetInteger("direction", 2);
             transform.localScale = new Vector3(1, 1, 1);
-            currentScale = 1;
+            direction = 2;
         } else if (yMove > 0)
         {
             animator.SetInteger("direction", 0);
             transform.localScale = new Vector3(1, 1, 1);
-            currentScale = 1;
+            direction = 0;
         }
         
         animator.SetBool("isIdle", xMove == 0 && yMove == 0);

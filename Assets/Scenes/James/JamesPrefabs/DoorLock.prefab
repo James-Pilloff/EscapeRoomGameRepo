@@ -166,6 +166,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLocked: 1
   lockCollider: {fileID: 8964123979349620824}
+  locked: {fileID: 0}
+  unlocked: {fileID: 0}
+  unlockShift: {x: 0, y: 0, z: 0}
 --- !u!1 &8706804824415306827
 GameObject:
   m_ObjectHideFlags: 0

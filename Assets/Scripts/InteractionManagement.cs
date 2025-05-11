@@ -24,5 +24,6 @@ public class InteractionManagement : MonoBehaviour
                 canInteract = false;
             }
         }
+        GetComponent<SpriteRenderer>().enabled = !canInteract;
     }
 }
