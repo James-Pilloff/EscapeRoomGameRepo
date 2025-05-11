@@ -60,7 +60,6 @@ public class BookManager : MonoBehaviour
     {
         currentSprite.GetComponent<SpriteRenderer>().enabled = false;
         currentPage ++;
-        Debug.Log(currentPage);
         currentSprite = pages[currentPage];
         currentSprite.GetComponent<SpriteRenderer>().enabled = true;
     }

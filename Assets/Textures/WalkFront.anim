@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WalkSouth
+  m_Name: WalkFront
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -22,13 +22,13 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 21300000, guid: b43bba37649d917439f0b93f4602801f, type: 3}
-    - time: 0.5
+    - time: 0.25
       value: {fileID: 21300000, guid: 2c1399e54d02b614fa79c00ab92f4bd7, type: 3}
-    - time: 1
+    - time: 0.5
       value: {fileID: 21300000, guid: 49b28741b7a6cfc4fa2c690358af6ce5, type: 3}
-    - time: 1.5
+    - time: 0.75
       value: {fileID: 21300000, guid: 66493800fa3546c48b96fa3a2eaadacc, type: 3}
-    - time: 2
+    - time: 1
       value: {fileID: 21300000, guid: b43bba37649d917439f0b93f4602801f, type: 3}
     attribute: m_Sprite
     path: 
@@ -62,7 +62,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2.0833333
+    m_StopTime: 1.0833334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
