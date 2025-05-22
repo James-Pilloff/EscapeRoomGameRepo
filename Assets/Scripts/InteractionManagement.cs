@@ -21,6 +21,10 @@ public class InteractionManagement : MonoBehaviour
         {
             if (interactives[index].GetComponent<InteractiveDetection>().isInteracting)
             {
+                if (!canInteract)
+                {
+                    interactives[index].GetComponent<InteractiveDetection>().isInteracting = false;
+                }
                 canInteract = false;
             }
         }
