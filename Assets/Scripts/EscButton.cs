@@ -42,7 +42,7 @@ public class EscButton : MonoBehaviour
             }
         }
 
-        if (isClicked && !wasClicked || Input.GetKeyDown(KeyCode.Escape))
+        if (isClicked && !wasClicked || Input.GetKeyDown(KeyCode.E))
         {
             isPressed = true;
         }

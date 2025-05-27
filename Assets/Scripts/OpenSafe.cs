@@ -5,6 +5,7 @@ using UnityEngine;
 public class OpenSafe : MonoBehaviour
 {
     public GameObject safe;
+    public GameObject safe2;
 
     // Start is called before the first frame update
     void Start()
@@ -20,13 +21,26 @@ public class OpenSafe : MonoBehaviour
             if (safe.GetComponent<SafeBehavior>().locked)
             {
                 safe.GetComponent<SafeBehavior>().open = true;
+                safe2.GetComponent<SafePart2Behavior>().open = false;
             } else
             {
-                GetComponent<InteractiveDetection>().isInteracting = false;
+                safe.GetComponent<SafeBehavior>().open = false;
+                if (safe2.GetComponent<SafePart2Behavior>().grabbed)
+                {
+                    GetComponent<InteractiveDetection>().isInteracting = false;
+                    safe.GetComponent<SafeBehavior>().open = false;
+                    safe2.GetComponent<SafePart2Behavior>().open = false;
+                } else
+                {
+                    safe.GetComponent<SafeBehavior>().open = false;
+                    safe2.GetComponent<SafePart2Behavior>().open = true;
+                }
+                
             }
         } else
         {
             safe.GetComponent<SafeBehavior>().open = false;
+            safe2.GetComponent<SafePart2Behavior>().open = false;
         }
     }
 }

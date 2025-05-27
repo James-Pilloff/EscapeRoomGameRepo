@@ -11,6 +11,7 @@ public class InteractiveDetection : MonoBehaviour
     public GameObject escButton;
     public GameObject mouse;
     public bool isInteracting;
+    public bool alwaysCan = false;
 
     private ContactFilter2D contactFilter;
     private List<Collider2D> results = new List<Collider2D>();
@@ -55,7 +56,7 @@ public class InteractiveDetection : MonoBehaviour
             }
         }
         
-        if (isClicked && !wasClicked && inRange && interactionManager.GetComponent<InteractionManagement>().canInteract)
+        if (isClicked && !wasClicked && inRange && (interactionManager.GetComponent<InteractionManagement>().canInteract || alwaysCan))
         {
             isInteracting = true;
         }

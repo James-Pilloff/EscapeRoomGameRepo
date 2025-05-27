@@ -5,7 +5,6 @@ using UnityEngine;
 public class SafeBehavior : MonoBehaviour
 {
     public string correctCode;
-    public GameObject contents;
     public int maxLen;
     public string code;
     public bool locked;
@@ -45,7 +44,6 @@ public class SafeBehavior : MonoBehaviour
         if (code == correctCode)
         {
             locked = false;
-            contents.GetComponent<GrabbableBehavior>().Hold();
         }
         Reset();
     }
