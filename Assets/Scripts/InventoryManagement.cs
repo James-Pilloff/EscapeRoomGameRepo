@@ -5,6 +5,8 @@ using UnityEngine;
 public class InventoryManagement : MonoBehaviour
 {
     public string holding = "";
+    public List<string> foods = new List<string>();
+    public List<Vector3> positions = new List<Vector3>();
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +17,9 @@ public class InventoryManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (foods.Contains(holding))
+        {
+            foods[foods.IndexOf(holding)] = "";
+        }
     }
 }

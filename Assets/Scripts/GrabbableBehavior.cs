@@ -48,5 +48,10 @@ public class GrabbableBehavior : MonoBehaviour
         {
             transform.position = nullPos;
         }
+
+        if (invent.GetComponent<InventoryManagement>().foods.Contains(objectName))
+        {
+            transform.position = invent.GetComponent<InventoryManagement>().positions[invent.GetComponent<InventoryManagement>().foods.IndexOf(objectName)];
+        }
     }
 }
