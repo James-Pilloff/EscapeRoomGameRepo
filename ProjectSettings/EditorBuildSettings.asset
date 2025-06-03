@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/James/ObjectSetup.unity
     guid: ad9e12ae37465c443ba3b692d7a57eff
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 15fd418059bd1614e978fcee48f21e4d
   m_configObjects: {}
